@@ -10,6 +10,12 @@ repositories {
 	jcenter()
 }
 
+jar {
+	manifest {
+		attributes 'Main-Class': 'sk.mhecko.ssl.SSLPoke'
+	}
+}
+
 application {
 	mainClassName = 'sk.mhecko.ssl.SSLPoke'
 	applicationDefaultJvmArgs = ['-Djavax.net.ssl.trustStore=cacerts', '-Djavax.net.ssl.trustStorePassword=changeit']
