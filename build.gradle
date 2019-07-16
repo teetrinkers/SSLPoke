@@ -1,18 +1,16 @@
-apply plugin: 'java'
+plugins {
+	id 'java'
+	id 'application'
+}
 
 version = '1.0'
 sourceCompatibility = 1.8
 
 repositories {
-	mavenCentral()
+	jcenter()
 }
 
-jar {
-	manifest {
-		attributes 'Main-Class': 'sk.mhecko.ssl.SSLPoke'
-	}
-}
-
-dependencies {
-	
+application {
+	mainClassName = 'sk.mhecko.ssl.SSLPoke'
+	applicationDefaultJvmArgs = ['-Djavax.net.ssl.trustStore=cacerts', '-Djavax.net.ssl.trustStorePassword=changeit']
 }
